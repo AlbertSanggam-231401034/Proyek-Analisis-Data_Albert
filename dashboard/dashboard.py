@@ -17,15 +17,15 @@ sns.set_theme(style="ticks", palette="pastel")
 
 @st.cache_data
 def load_data():
-    # Mengambil letak folder dashboard/ saat ini
+    # Posisi folder saat ini (folder dashboard/)
     current_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # Mundur satu folder ke folder utama repositori (proyek-analisis-data_albert/)
+    # Mundur satu folder ke root repositori (proyek-analisis-data_albert/)
     base_dir = os.path.dirname(current_dir)
     
-    # Cari file CSV di folder utama tersebut
-    day_path = os.path.join(base_dir, "day.csv")
-    hour_path = os.path.join(base_dir, "hour.csv")
+    # Masuk ke folder data/ untuk ngambil CSV-nya
+    day_path = os.path.join(base_dir, "data", "day.csv")
+    hour_path = os.path.join(base_dir, "data", "hour.csv")
     
     # Load dataset
     day_df = pd.read_csv(day_path)
