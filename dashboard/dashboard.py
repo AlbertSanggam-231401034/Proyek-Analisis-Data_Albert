@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import numpy as np
+import os  # Tambahan library untuk mengatasi masalah path
 
 # Set Konfigurasi Halaman Streamlit
 st.set_page_config(page_title="Bike Sharing Dashboard", page_icon="🚲", layout="wide")
@@ -16,9 +17,16 @@ sns.set_theme(style="ticks", palette="pastel")
 
 @st.cache_data
 def load_data():
-    # Load dataset
-    day_df = pd.read_csv("day.csv")
-    hour_df = pd.read_csv("hour.csv")
+    # Mengambil jalur/direktori dari file dashboard.py saat ini
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Menggabungkan direktori dengan nama file CSV
+    day_path = os.path.join(current_dir, "day.csv")
+    hour_path = os.path.join(current_dir, "hour.csv")
+    
+    # Load dataset menggunakan absolute path
+    day_df = pd.read_csv(day_path)
+    hour_df = pd.read_csv(hour_path)
     
     # Cleaning: Ubah tipe data dteday ke datetime
     day_df['dteday'] = pd.to_datetime(day_df['dteday'])
@@ -178,7 +186,6 @@ st.markdown("---")
 # --- Visualisasi 3: Analisis Lanjutan (Clustering Waktu) ---
 st.subheader("3. Perbandingan Tipe Pengguna Berdasarkan Kelompok Waktu")
 
-# Menghitung agregasi berdasarkan time_group
 time_clustering = main_hour_df.groupby('time_group')[['casual', 'registered']].mean().reset_index()
 time_clustering_melted = time_clustering.melt(id_vars='time_group', var_name='User Type', value_name='Average Rentals')
 
@@ -204,5 +211,3 @@ with st.expander("Lihat Penjelasan (Insight)"):
         "pada rentang waktu **Sore** dan **Pagi** (jam pulang dan pergi kerja). Di sisi lain, "
         "jumlah pengguna **Casual** mengalami peningkatan signifikan di waktu **Siang**."
     )
-
-st.caption("Copyright © Albert Sanggam Nalom Sinurat 2024")
