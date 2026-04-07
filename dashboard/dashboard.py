@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import numpy as np
-import os  # Tambahan library untuk mengatasi masalah path
+import os
 
 # Set Konfigurasi Halaman Streamlit
 st.set_page_config(page_title="Bike Sharing Dashboard", page_icon="🚲", layout="wide")
@@ -17,14 +17,17 @@ sns.set_theme(style="ticks", palette="pastel")
 
 @st.cache_data
 def load_data():
-    # Mengambil jalur/direktori dari file dashboard.py saat ini
+    # Mengambil letak folder dashboard/ saat ini
     current_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # Menggabungkan direktori dengan nama file CSV
-    day_path = os.path.join(current_dir, "day.csv")
-    hour_path = os.path.join(current_dir, "hour.csv")
+    # Mundur satu folder ke folder utama repositori (proyek-analisis-data_albert/)
+    base_dir = os.path.dirname(current_dir)
     
-    # Load dataset menggunakan absolute path
+    # Cari file CSV di folder utama tersebut
+    day_path = os.path.join(base_dir, "day.csv")
+    hour_path = os.path.join(base_dir, "hour.csv")
+    
+    # Load dataset
     day_df = pd.read_csv(day_path)
     hour_df = pd.read_csv(hour_path)
     
@@ -211,3 +214,5 @@ with st.expander("Lihat Penjelasan (Insight)"):
         "pada rentang waktu **Sore** dan **Pagi** (jam pulang dan pergi kerja). Di sisi lain, "
         "jumlah pengguna **Casual** mengalami peningkatan signifikan di waktu **Siang**."
     )
+
+st.caption("Copyright © Albert Sanggam Nalom Sinurat")
