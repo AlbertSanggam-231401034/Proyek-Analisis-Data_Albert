@@ -107,7 +107,7 @@ main_hour_df = hour_df[(hour_df['dteday'] >= pd.to_datetime(start_date)) &
 # 3. Main Dashboard Content
 # ==============================
 st.title("🚴‍♂️ Bike Sharing Data Analytics Dashboard")
-st.markdown("Dashboard interaktif ini menyajikan ringkasan dan analisis pola penyewaan sepeda berdasarkan *dataset* historis.")
+st.markdown("Dashboard interaktif ini menyajikan ringkasan dan analisis pola penyewaan sepeda selama periode observasi tahun **2011-2012**.")
 
 # --- Metrik Utama ---
 st.subheader("📌 Ringkasan Metrik (Berdasarkan Filter)")
@@ -128,7 +128,7 @@ with col3:
 st.markdown("---")
 
 # --- Visualisasi 1: Pengaruh Musim dan Cuaca ---
-st.subheader("1. Pengaruh Cuaca dan Musim Terhadap Penyewaan")
+st.subheader("1. Pengaruh Cuaca dan Musim Terhadap Penyewaan (2011-2012)")
 fig1, ax1 = plt.subplots(figsize=(10, 5))
 sns.barplot(
     x='season_label', 
@@ -148,15 +148,15 @@ st.pyplot(fig1)
 
 with st.expander("Lihat Penjelasan (Insight)"):
     st.write(
-        "Grafik di atas menunjukkan bahwa cuaca cerah/berawan (Clear/Partly Cloudy) secara konsisten "
-        "mendominasi angka penyewaan di setiap musim. Cuaca buruk (seperti hujan lebat atau badai) "
-        "hampir sepenuhnya menghentikan aktivitas penyewaan."
+        "Selama observasi tahun 2011-2012, grafik di atas menunjukkan bahwa cuaca cerah/berawan (Clear/Partly Cloudy) secara konsisten "
+        "mendominasi angka penyewaan di setiap musim. Cuaca ekstrem (seperti hujan lebat atau badai) "
+        "hampir sepenuhnya menghentikan aktivitas penyewaan secara signifikan."
     )
 
 st.markdown("---")
 
 # --- Visualisasi 2: Pola per Jam ---
-st.subheader("2. Pola Penyewaan per Jam: Hari Kerja vs Libur")
+st.subheader("2. Pola Penyewaan per Jam: Hari Kerja vs Libur (2011-2012)")
 fig2, ax2 = plt.subplots(figsize=(12, 5))
 sns.lineplot(
     x='hr', 
@@ -179,7 +179,7 @@ st.pyplot(fig2)
 with st.expander("Lihat Penjelasan (Insight)"):
     st.write(
         "Pada **hari kerja**, terlihat dua puncak tajam (bimodal) pada pukul 08:00 pagi dan 17:00-18:00 sore, "
-        "menandakan bahwa sepeda digunakan oleh para pekerja/komuter. "
+        "menandakan bahwa sepeda dominan digunakan sebagai alat transportasi komuter. "
         "Sebaliknya, pada **akhir pekan/libur**, kurva membentuk pola lonceng yang landai di siang hari, "
         "mengindikasikan penggunaan sepeda untuk rekreasi atau aktivitas santai."
     )
@@ -210,9 +210,9 @@ st.pyplot(fig3)
 
 with st.expander("Lihat Penjelasan (Insight)"):
     st.write(
-        "Hasil *binning* manual waktu menunjukkan dominasi ekstrem dari pengguna **Registered** "
+        "Hasil *binning* manual waktu mengonfirmasi dominasi ekstrem dari pengguna **Registered** "
         "pada rentang waktu **Sore** dan **Pagi** (jam pulang dan pergi kerja). Di sisi lain, "
-        "jumlah pengguna **Casual** mengalami peningkatan signifikan di waktu **Siang**."
+        "jumlah pengguna **Casual** mengalami peningkatan paling signifikan di waktu **Siang**."
     )
 
 st.caption("Copyright © Albert Sanggam Nalom Sinurat")
