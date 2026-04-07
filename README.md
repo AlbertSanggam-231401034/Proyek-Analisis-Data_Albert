@@ -1,22 +1,28 @@
 # 🚲 Bike Sharing Data Analysis Dashboard
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
+![Seaborn](https://img.shields.io/badge/Seaborn-blue?style=for-the-badge&logo=seaborn)
+![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+
 ## 📌 Project Overview
 Proyek ini merupakan tugas akhir dari kelas **Belajar Analisis Data dengan Python** di Dicoding. Proyek ini berfokus pada analisis *Bike Sharing Dataset* untuk menggali *insight* bisnis yang bermanfaat. 
 
-Melalui proses *data wrangling*, *exploratory data analysis* (EDA), dan visualisasi data, dashboard ini dirancang untuk menjawab dua pertanyaan bisnis utama:
-1. Bagaimana pengaruh kondisi cuaca dan musim terhadap total penyewaan sepeda (*casual* dan *registered*)?
-2. Bagaimana pola penyewaan sepeda berdasarkan jam dalam sehari (0-23) jika dibandingkan antara hari kerja (*workingday*) dan hari libur/akhir pekan?
+Melalui proses *data wrangling*, *exploratory data analysis* (EDA) yang komprehensif, dan visualisasi data, dashboard ini dirancang untuk menjawab dua pertanyaan bisnis utama:
+1. Bagaimana pengaruh kondisi cuaca dan musim terhadap total penyewaan sepeda (*casual* dan *registered*) selama periode tahun 2011-2012?
+2. Bagaimana pola penyewaan sepeda berdasarkan jam dalam sehari (0-23) jika dibandingkan antara hari kerja (*workingday*) dan hari libur/akhir pekan dalam keseluruhan periode observasi (2011-2012)?
 
 ## 📂 Directory Structure
 ```text
 .
 ├── dashboard
 │   └── dashboard.py
-│   └── main_data.csv
 ├── data
 │   ├── day.csv
 │   └── hour.csv
-├── Proyek_Analisis_Data_Albert_Sanggam_Nalom_Sinurat.ipynb
+├── notebook.ipynb
 ├── README.md
 ├── requirements.txt
 └── url.txt
@@ -27,7 +33,7 @@ Melalui proses *data wrangling*, *exploratory data analysis* (EDA), dan visualis
 ### 1. Clone Repository
 Langkah pertama adalah mengunduh salinan repositori ini ke komputer Anda. Buka terminal atau command prompt, lalu jalankan perintah berikut:
 ```bash
-git clone https://github.com/AlbertSanggam-231401034/proyek-analisis-data_albert.git
+git clone [https://github.com/AlbertSanggam-231401034/proyek-analisis-data_albert.git](https://github.com/AlbertSanggam-231401034/proyek-analisis-data_albert.git)
 cd proyek-analisis-data_albert
 ```
 
