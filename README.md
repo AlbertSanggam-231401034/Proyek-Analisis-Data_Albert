@@ -19,10 +19,11 @@ Melalui proses *data wrangling*, *exploratory data analysis* (EDA) yang komprehe
 .
 ├── dashboard
 │   └── dashboard.py
+│   └── main_data.csv
 ├── data
 │   ├── day.csv
 │   └── hour.csv
-├── notebook.ipynb
+├── Proyek_Analisis_Data_Albert_Sanggam_Nalom_Sinurat.ipynb
 ├── README.md
 ├── requirements.txt
 └── url.txt
